@@ -169,9 +169,14 @@ console.log("\nEx. 8\n")
 
 const rollDice = (x) => {
   let result = {sum: 0}
-  let newSum = 0
-  for (let i = 0; i <= x; i++) newSum += result.sum + dice()
-  return newSum
+  let newArray = []
+  for (let i = 0; i <= x-1; i++) {
+    let roll = dice() //generate dice roll result
+    newArray.push(roll) //update array with result (assigning to variable returns length)
+    result.values = newArray //update values property with new array
+    result.sum += roll //update sum property
+  }
+  return result
 }
 
 console.log(rollDice(3))
@@ -197,10 +202,20 @@ console.log(howManyDays('04/02/2021'))
 /* EXERCISE 10
    Write a function called isTodayMyBirthday which should return true if today's your birthday, false otherwise.
 */
-// console.log("\nEx. 10\n")
+console.log("\nEx. 10\n")
 
 
-// const isTodayMyBirthday = () => {}
+const isTodayMyBirthday = (date) => {
+  let myBirthday = new Date ('04/02/2021')
+  let myMonth = myBirthday.getMonth()
+  let myDay = myBirthday.getDay()
+  let today = new Date()
+  let month = today.getMonth()
+  let day = today.getDate()
+  return (myMonth === month && myDay === day) ? "Happy Birthday" : "It's not today." //run above function to say how many days to birthday.
+}
+
+console.log(isTodayMyBirthday())
 
 // JS Arrays & Objects
 // NOTE: the movies array used in some exercises is defined at the end of this file
