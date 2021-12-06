@@ -387,33 +387,62 @@ console.log(countMovies(movies))
 console.log("\nEx. 14\n")
 
 let titles = {}
-Object.assign(titles, movies);
+let newObject = Object.assign(titles, movies); //object reassignment error, changes original object
 
-const onlyTheTitles = (titles) => {
+const onlyTheTitles = (newObject) => {
   let titleArray = []
-  for (let i = 0; i <= titles.length - 1; i++){
-    let currentMovie = titles[i]
-    delete currentMovie.Year
-    delete currentMovie.imdbID
-    delete currentMovie.Type
-    delete currentMovie.Poster
+  for (let i = 0; i <= newObject.length - 1; i++){
+    let currentMovie = newObject[i]
+    delete newObject[i].Year
+    delete newObject[i].imdbID
+    delete newObject[i].Type
+    delete newObject[i].Poster
     titleArray.push(currentMovie)
   }
   return titleArray
 }
 
-console.log(onlyTheTitles(movies))
+console.log(onlyTheTitles(movies)) //why pass movies?
+// console.log(titles)
+// console.log(movies)
+
 /* EXERCISE 15
    Write a function called onlyInThisMillennium which returns only the movies produced in this millennium from the provided movies array.
 */
+console.log("\nEx. 15\n")
+
+let years = {} 
+// Object.assign(years, movies);
+let newerObject = Object.assign(years, movies); //original object has been mutated and I'm not sure how to get it back..?
+// console.log(newObject)
+
+
+const onlyInThisMillennium = (newObject) => {
+  let result = []
+  for (let i = 0; i <= newObject.length - 1; i++){
+    let movief = years[i]
+    let movieYear = movief.Year
+    if (movieYear > 2000) {
+      result.push(movie)
+      console.log(result)
+    } else continue
+    // console.log(movie)
+    // console.log(movie["Year"])
+    // console.log(movieYear)
+  }
+}
+
+console.log(onlyInThisMillennium(movies))
 
 /* EXERCISE 16 
     Write a function called getMovieById which receives an id as a parameter and returns the movie with the given id from the provided movies array.
 */
 
+
 /* EXERCISE 17
     Write a function called sumAllTheYears which returns the sum of all the years in which the movies in the provided movies array have been produced.
 */
+
 
 /* EXERCISE 18
     Write a function called searchByTitle which receives a string as a parameter and returns all the movies in the provided movies array which contain that string in the title.
