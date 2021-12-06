@@ -399,40 +399,41 @@ const onlyTheTitles = (newObject) => {
     delete newObject[i].Poster
     titleArray.push(currentMovie)
   }
-  return titleArray
+  return titleArray //returning array of objects with only titles 
 }
 
 console.log(onlyTheTitles(movies)) //why pass movies?
+
 // console.log(titles)
 // console.log(movies)
 
 /* EXERCISE 15
    Write a function called onlyInThisMillennium which returns only the movies produced in this millennium from the provided movies array.
 */
-console.log("\nEx. 15\n")
+// console.log("\nEx. 15\n")
 
-let years = {} 
-// Object.assign(years, movies);
-let newerObject = Object.assign(years, movies); //original object has been mutated and I'm not sure how to get it back..?
-// console.log(newObject)
+// let years = {} 
+// // Object.assign(years, movies);
+// let newerObject = Object.assign(years, movies); //original object has been mutated and I'm not sure how to get it back..?
+// // console.log(newObject)
 
 
-const onlyInThisMillennium = (newObject) => {
-  let result = []
-  for (let i = 0; i <= newObject.length - 1; i++){
-    let movief = years[i]
-    let movieYear = movief.Year
-    if (movieYear > 2000) {
-      result.push(movie)
-      console.log(result)
-    } else continue
-    // console.log(movie)
-    // console.log(movie["Year"])
-    // console.log(movieYear)
-  }
-}
+// const onlyInThisMillennium = (newObject) => {
+//   let result = []
+//   for (let i = 0; i <= newObject.length - 1; i++){
+//     let movief = years[i]
+//     let movieYear = movief.Year
+//     if (movieYear > 2000) {
+//       result.push(movie)
+//       console.log(result)
+//     } else continue
+//     // console.log(movie)
+//     // console.log(movie["Year"])
+//     // console.log(movieYear)
+//   }
+// }
 
-console.log(onlyInThisMillennium(movies))
+// console.log(onlyInThisMillennium(movies))
 
 /* EXERCISE 16 
     Write a function called getMovieById which receives an id as a parameter and returns the movie with the given id from the provided movies array.
