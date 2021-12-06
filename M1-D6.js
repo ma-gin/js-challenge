@@ -133,19 +133,27 @@ const isThisAnEmail = (email) => {
     
 console.log(isThisAnEmail('mattginter@gmail.com'));
 
-
 /* EXERCISE 7
    Write a function called whatDayIsIt that should return the current day of the week.
 */
-// console.log("\nEx. 7\n")
+console.log("\nEx. 7\n")
 
-// let today = new Date().getHours()
-// console.log(today)
-
-// const whatDayIsIt = () => Date.getDay()
-// // console.log(whatDayIsIt())
-
-
+const whatDayIsIt = () => {
+  let today = new Date().getDay()
+  let currentDay
+  switch (today) {
+    case 1 : currentDay = "Monday"; break
+    case 2 : currentDay = "Tuesday"; break
+    case 3 : currentDay = "Wednesday"; break
+    case 4 : currentDay = "Thursday"; break
+    case 4 : currentDay = "Friday"; break
+    case 4 : currentDay = "Saturday"; break
+    case 4 : currentDay = "Sunday"; break
+  }
+  return currentDay
+}
+const currentDay = whatDayIsIt()
+console.log(`Today is ${currentDay}.`)
 
 /* EXERCISE 8
     Write a function called rollTheDices which receives a number as a parameter.
