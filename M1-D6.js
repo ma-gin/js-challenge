@@ -117,14 +117,9 @@ console.log(deleteOne("Heey", true))
 */
 console.log("\nEx. 5\n")
 
-const onlyLetters = (str) => {
-  let splitArray = str.split("")
-  for (let i = 0; i <= splitArray.length; i++){
-    let noDigits = 
-    console.log(noDigits)
-    //switch case possible
-  }
-}
+const onlyLetters = (str) => str.replace(/[0-9]/g, '')
+
+console.log(onlyLetters("I have 2 cats."))
 
 /* EXERCISE 6
    Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
@@ -144,7 +139,7 @@ console.log(isThisAnEmail('mattginter@gmail.com'));
 */
 // console.log("\nEx. 7\n")
 
-// let today = new Date()
+// let today = new Date().getHours()
 // console.log(today)
 
 // const whatDayIsIt = () => Date.getDay()
@@ -171,10 +166,20 @@ console.log(isThisAnEmail('mattginter@gmail.com'));
 /* EXERCISE 9
    Write a function called howManyDays which receives a date as a parameter and returns the number of days passed since that date.
 */
-// console.log("\nEx. 9\n")
+console.log("\nEx. 9\n")
 
+const howManyDays = (date) => {
+  let dateSince = new Date(date)
+  let today = new Date()
+  let timeElapsed = today.getTime() - dateSince.getTime()
+  dateSince = dateSince.toLocaleDateString()
+  let result = Math.ceil(timeElapsed / (1000 * 3600 * 24) - 1)
+  const message = result === 1 ? ` day since ${dateSince}` :` days since ${dateSince}`
+  return result + message
+}
 
-// const howManyDays = () => {}
+console.log(howManyDays('04/02/2021'))
+// make it work for past and future
 
 /* EXERCISE 10
    Write a function called isTodayMyBirthday which should return true if today's your birthday, false otherwise.
