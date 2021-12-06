@@ -14,18 +14,21 @@ ASSIGNMENT RULES
 /* EXERCISE A
    Create a variable called test and assign a string value to it.
 */
+console.log("\nEx. A\n")
 
 const test = "Test string."
 
 /* EXERCISE B
     Create a variable called sum and assign to it the result of the sum between the numbers 10 and 20.
 */
+console.log("\nEx. B\n")
 
 const sum = 10 + 20
 
 /* EXERCISE C
     Create a variable called random and assign to it a random number between 0 and 20 (it should be randomly created at each execution).
 */
+console.log("\nEx. C\n")
 
 const random = Math.random() * 20
 console.log(random)
@@ -33,6 +36,7 @@ console.log(random)
 /* EXERCISE D
     Create a variable called me and assign to it an object containing the following information: name = your name, surname = your surname, age = your age.
 */
+console.log("\nEx. D\n")
 
 const me = {
   name: "Matt",
@@ -43,6 +47,7 @@ const me = {
 /* EXERCISE E
     Write a piece of code for programmatically removing the age property from the previously create object.
 */
+console.log("\nEx. E\n")
 
 delete me.age
 
@@ -51,6 +56,7 @@ console.log(me)
 /* EXERCISE F
    Write a piece of code for programmatically adding to the me object you defined before an array called skills, containing the programming languages you know right now.
 */
+console.log("\nEx. F\n")
 
 me.skills = ["HTML/CSS", "Javascript"]
 
@@ -59,6 +65,7 @@ console.log(me)
 /* EXERCISE G
    Write a piece of code for programmatically removing the last skill from the skills array inside the me object.
 */
+console.log("\nEx. G\n")
 
 const lastItem = me.skills.pop()
 
@@ -68,33 +75,82 @@ console.log(lastItem)
 /* EXERCISE 1
     Write a function called dice; it should randomize an integer number between 1 and 6.
 */
+console.log("\nEx. 1\n")
+
+const dice = () => Math.ceil(Math.random() * 6)
+
+console.log(dice())
 
 /* EXERCISE 2
     Write a function called whoIsBigger which receives 2 numbers as parameters and returns the biggest one.
 */
+console.log("\nEx. 2\n")
+
+const whoIsBigger = (x, y) => x > y ? x : y
+
+console.log(whoIsBigger(2, 1))
+//add if equal
 
 /* EXERCISE 3
     Write a function called splitMe which receives a string as a parameter and returns an array with every word in that string.
     Ex.: splitMe("I love coding") => returns ["I", "Love", "Coding"]
 */
+console.log("\nEx. 3\n")
+
+const splitMe = (str) => str.split(" ")
+
+console.log(splitMe("Hello World"))
 
 /* EXERCISE 4
     Write a function called deleteOne which receives a string and a boolean as parameters.
     If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 */
+console.log("\nEx. 4\n")
+
+const deleteOne = (str, bool) => bool === true ? str.slice(1) : str.slice(0, -1)
+
+console.log(deleteOne("Heey", true))
 
 /* EXERCISE 5
    Write a function called onlyLetters which receives a string as a parameter and returns it removing all the digits.
    Ex.: onlyLetters("I have 4 dogs") => returns "I have  dogs"
 */
+console.log("\nEx. 5\n")
+
+const onlyLetters = (str) => {
+  let splitArray = str.split("")
+  for (let i = 0; i <= splitArray.length; i++){
+    let noDigits = 
+    console.log(noDigits)
+    //switch case possible
+  }
+}
 
 /* EXERCISE 6
    Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
 */
+console.log("\nEx. 6\n")
+
+const isThisAnEmail = (email) => {
+        let regex = /\S+@\S+\.\S+/;
+        return regex.test(email);
+    }
+    
+console.log(isThisAnEmail('mattginter@gmail.com'));
+
 
 /* EXERCISE 7
    Write a function called whatDayIsIt that should return the current day of the week.
 */
+// console.log("\nEx. 7\n")
+
+// let today = new Date()
+// console.log(today)
+
+// const whatDayIsIt = () => Date.getDay()
+// // console.log(whatDayIsIt())
+
+
 
 /* EXERCISE 8
     Write a function called rollTheDices which receives a number as a parameter.
@@ -106,14 +162,27 @@ console.log(lastItem)
         values: [3, 3, 4]
     }
 */
+// console.log("\nEx. 8\n")
+
+// const rollDice = (x) => {
+
+// }
 
 /* EXERCISE 9
    Write a function called howManyDays which receives a date as a parameter and returns the number of days passed since that date.
 */
+// console.log("\nEx. 9\n")
+
+
+// const howManyDays = () => {}
 
 /* EXERCISE 10
    Write a function called isTodayMyBirthday which should return true if today's your birthday, false otherwise.
 */
+// console.log("\nEx. 10\n")
+
+
+// const isTodayMyBirthday = () => {}
 
 // JS Arrays & Objects
 // NOTE: the movies array used in some exercises is defined at the end of this file
