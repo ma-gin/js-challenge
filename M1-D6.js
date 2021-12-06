@@ -165,11 +165,16 @@ console.log(`Today is ${currentDay}.`)
         values: [3, 3, 4]
     }
 */
-// console.log("\nEx. 8\n")
+console.log("\nEx. 8\n")
 
-// const rollDice = (x) => {
+const rollDice = (x) => {
+  let result = {sum: 0}
+  let newSum = 0
+  for (let i = 0; i <= x; i++) newSum += result.sum + dice()
+  return newSum
+}
 
-// }
+console.log(rollDice(3))
 
 /* EXERCISE 9
    Write a function called howManyDays which receives a date as a parameter and returns the number of days passed since that date.
