@@ -17,6 +17,7 @@ ASSIGNMENT RULES
 console.log("\nEx. A\n")
 
 const test = "Test string."
+console.log(test)
 
 /* EXERCISE B
     Create a variable called sum and assign to it the result of the sum between the numbers 10 and 20.
@@ -24,6 +25,7 @@ const test = "Test string."
 console.log("\nEx. B\n")
 
 const sum = 10 + 20
+console.log(sum)
 
 /* EXERCISE C
     Create a variable called random and assign to it a random number between 0 and 20 (it should be randomly created at each execution).
@@ -43,6 +45,8 @@ const me = {
   surname: "Ginter",
   age: 31
 }
+
+console.log(me)
 
 /* EXERCISE E
     Write a piece of code for programmatically removing the age property from the previously create object.
@@ -344,8 +348,11 @@ const movies = [
 console.log("\nEx. 11\n")
 
 const deleteProp = (object, propertyToDelete) => {
-  delete object[propertyToDelete]
-  return object
+  if (typeof object === "object"){
+    delete object[propertyToDelete]
+    return object
+  } else console.log("Please input object.")
+
 }
 
 console.log(deleteProp({name: "Matt", age: 31}, "age"))
@@ -362,7 +369,7 @@ const oldestMovie = (movies) => {
   for (let i = 0; i <= movies.length - 1; i++){
     let movie = movies[i]
     let movieYear = movie.Year
-    if (movieYear < oldestYear) {
+    if (movieYear < oldestYear){
       oldestYear = movieYear
       result = movie
     } else continue
@@ -386,31 +393,39 @@ console.log(countMovies(movies))
 */
 console.log("\nEx. 14\n")
 
-let titles = {}
-let newObject = Object.assign(titles, movies); //object reassignment error, changes original object
+// let titles = {}
+// let newObject = Object.assign(titles, movies); //object reassignment error, changes original object
+// console.log(typeof titles)
 
-const onlyTheTitles = (newObject) => {
-  let titleArray = []
-  for (let i = 0; i <= newObject.length - 1; i++){
-    let currentMovie = newObject[i]
-    delete newObject[i].Year
-    delete newObject[i].imdbID
-    delete newObject[i].Type
-    delete newObject[i].Poster
-    titleArray.push(currentMovie)
+// const onlyTheTitles = (newObject) => {
+//   let titleArray = []
+//   for (let i = 0; i <= newObject.length - 1; i++){
+//     let currentMovie = newObject[i]
+//     delete newObject[i].Year
+//     delete newObject[i].imdbID
+//     delete newObject[i].Type
+//     delete newObject[i].Poster
+//     titleArray.push(currentMovie)
+//   }
+//   console.log(movies)
+//   return titleArray                  //returning array of objects with only titles property value pair
+// }
+
+const onlyTheTitles = (x) => {
+  let result = []
+  for(let i = 0; i < x.length; i++){
+      const title = movies[i].Title
+      result.push(title)
   }
-  return titleArray //returning array of objects with only titles 
+  return result
 }
 
-console.log(onlyTheTitles(movies)) //why pass movies?
-
-// console.log(titles)
-// console.log(movies)
+console.log(onlyTheTitles(movies))
 
 /* EXERCISE 15
    Write a function called onlyInThisMillennium which returns only the movies produced in this millennium from the provided movies array.
 */
-// console.log("\nEx. 15\n")
+console.log("\nEx. 15\n")
 
 // let years = {} 
 // // Object.assign(years, movies);
@@ -418,42 +433,83 @@ console.log(onlyTheTitles(movies)) //why pass movies?
 // // console.log(newObject)
 
 
-// const onlyInThisMillennium = (newObject) => {
-//   let result = []
-//   for (let i = 0; i <= newObject.length - 1; i++){
-//     let movief = years[i]
-//     let movieYear = movief.Year
-//     if (movieYear > 2000) {
-//       result.push(movie)
-//       console.log(result)
-//     } else continue
-//     // console.log(movie)
-//     // console.log(movie["Year"])
-//     // console.log(movieYear)
-//   }
-// }
+const onlyInThisMillennium = (x) => {
+  let result = []
+  for (let i = 0; i <= x.length - 1; i++){
+    let movieYear = x[i].Year
+    if (movieYear > 2000) {
+      result.push(x[i])
+    } else continue
+  }
+  return result
+}
 
-// console.log(onlyInThisMillennium(movies))
+console.log(onlyInThisMillennium(movies))
 
 /* EXERCISE 16 
     Write a function called getMovieById which receives an id as a parameter and returns the movie with the given id from the provided movies array.
 */
+console.log("\nEx. 16\n")
 
+const getMovieByID = (x) => {
+    for (let i = 0; i < movies.length; i++){
+        let idToMatch = movies[i].imdbID
+        if (idToMatch === x){
+            return movies[i].Title
+        }
+  }
+}
+
+console.log(getMovieByID("tt4154756"))
 
 /* EXERCISE 17
     Write a function called sumAllTheYears which returns the sum of all the years in which the movies in the provided movies array have been produced.
 */
+console.log("\nEx. 17\n")
 
+const sumAllTheYears = () => {
+  let result = 0
+    for(let i = 0; i < movies.length; i++){
+      let movieYear = movies[i].Year
+      result = result + +movieYear
+    }
+    return result
+}
+
+console.log(sumAllTheYears())
 
 /* EXERCISE 18
     Write a function called searchByTitle which receives a string as a parameter and returns all the movies in the provided movies array which contain that string in the title.
 */
+console.log("\nEx. 18\n")
+
+const searchByTitle = (x) => {
+    let result = []
+    for(let i = 0; i < movies.length; i++){
+      let title = movies[i].Title
+      if (title.includes(x)) result.push(title)
+    }
+    return result//array of movie titles
+}
+//return concatenated string?
+console.log(searchByTitle("Rings"))
 
 /* EXERCISE 19
     Write a function called searchAndDivide which receives a string as a parameter and returns an object;
     this object should contain an array called match, made by all the movies from the provided movies array which contain the given string in the title,
     and another array unmatch with all the remaining ones.
 */
+// console.log("\nEx. 19\n")
+
+// const searchAndDivide = (x) => {
+//   let object = {
+//     match: []
+//   }
+//   return object//object
+// }
+
+// console.log(searchAndDivide("Rings"))
+
 
 /* EXERCISE 20
    Write a function called "removeIndex" which receives a number as a parameter and returns the provided movies array without the element in the given position.
