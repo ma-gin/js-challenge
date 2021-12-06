@@ -224,6 +224,15 @@ console.log(isTodayMyBirthday())
    Write a function called deleteProp which receives an object and a string as parameters,
    and returns the given object after deleting its property named as the given string.
 */
+console.log("\nEx. 11\n")
+
+
+const deleteProp = (object, propertyToDelete) => {
+  delete object[propertyToDelete]
+  return object
+}
+
+console.log(deleteProp({name: "Matt", age: 31}, "age"))
 
 /* EXERCISE 12
     Write a function called oldestMovie which finds the oldest movie in the provided movies array.
