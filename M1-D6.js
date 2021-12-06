@@ -15,29 +15,54 @@ ASSIGNMENT RULES
    Create a variable called test and assign a string value to it.
 */
 
+const test = "Test string."
+
 /* EXERCISE B
     Create a variable called sum and assign to it the result of the sum between the numbers 10 and 20.
 */
+
+const sum = 10 + 20
 
 /* EXERCISE C
     Create a variable called random and assign to it a random number between 0 and 20 (it should be randomly created at each execution).
 */
 
+const random = Math.random() * 20
+console.log(random)
+
 /* EXERCISE D
     Create a variable called me and assign to it an object containing the following information: name = your name, surname = your surname, age = your age.
 */
+
+const me = {
+  name: "Matt",
+  surname: "Ginter",
+  age: 31
+}
 
 /* EXERCISE E
     Write a piece of code for programmatically removing the age property from the previously create object.
 */
 
+delete me.age
+
+console.log(me)
+
 /* EXERCISE F
    Write a piece of code for programmatically adding to the me object you defined before an array called skills, containing the programming languages you know right now.
 */
 
+me.skills = ["HTML/CSS", "Javascript"]
+
+console.log(me)
+
 /* EXERCISE G
    Write a piece of code for programmatically removing the last skill from the skills array inside the me object.
 */
+
+const lastItem = me.skills.pop()
+
+console.log(lastItem)
 
 // JS Functions
 /* EXERCISE 1
