@@ -377,12 +377,32 @@ console.log(oldestMovie(movies))
 */
 console.log("\nEx. 13\n")
 
+const countMovies = (movies) => movies.length
 
+console.log(countMovies(movies))
 
 /* EXERCISE 14
     Write a function called onlyTheTitles which creates an array with just the titles of the movies contained in the provided movies array.
 */
+console.log("\nEx. 14\n")
 
+let titles = {}
+Object.assign(titles, movies);
+
+const onlyTheTitles = (titles) => {
+  let titleArray = []
+  for (let i = 0; i <= titles.length - 1; i++){
+    let currentMovie = titles[i]
+    delete currentMovie.Year
+    delete currentMovie.imdbID
+    delete currentMovie.Type
+    delete currentMovie.Poster
+    titleArray.push(currentMovie)
+  }
+  return titleArray
+}
+
+console.log(onlyTheTitles(movies))
 /* EXERCISE 15
    Write a function called onlyInThisMillennium which returns only the movies produced in this millennium from the provided movies array.
 */
