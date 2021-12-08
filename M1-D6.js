@@ -362,12 +362,12 @@ console.log(deleteProp({name: "Matt", age: 31}, "age"))
 */
 console.log("\nEx. 12\n")
 
-const oldestMovie = (movies) => {
+const oldestMovie = x => {
   // console.log(movies)
   let oldestYear = 2022
   let result
-  for (let i = 0; i <= movies.length - 1; i++){
-    let movie = movies[i]
+  for (let i = 0; i <= x.length - 1; i++){
+    let movie = x[i]
     let movieYear = movie.Year
     if (movieYear < oldestYear){
       oldestYear = movieYear
@@ -411,7 +411,7 @@ console.log("\nEx. 14\n")
 //   return titleArray                  //returning array of objects with only titles property value pair
 // }
 
-const onlyTheTitles = (x) => {
+const onlyTheTitles = x => {
   let result = []
   for(let i = 0; i < x.length; i++){
       const title = movies[i].Title
@@ -433,13 +433,11 @@ console.log("\nEx. 15\n")
 // // console.log(newObject)
 
 
-const onlyInThisMillennium = (x) => {
+const onlyInThisMillennium = x => {
   let result = []
   for (let i = 0; i <= x.length - 1; i++){
     let movieYear = x[i].Year
-    if (movieYear > 2000) {
-      result.push(x[i])
-    } else continue
+    if (movieYear > 2000) result.push(x[i])
   }
   return result
 }
@@ -451,7 +449,7 @@ console.log(onlyInThisMillennium(movies))
 */
 console.log("\nEx. 16\n")
 
-const getMovieByID = (x) => {
+const getMovieByID = x => {
     for (let i = 0; i < movies.length; i++){
         let idToMatch = movies[i].imdbID
         if (idToMatch === x){
@@ -483,7 +481,7 @@ console.log(sumAllTheYears())
 */
 console.log("\nEx. 18\n")
 
-const searchByTitle = (x) => {
+const searchByTitle = x => {
     let result = []
     for(let i = 0; i < movies.length; i++){
       let title = movies[i].Title
@@ -499,21 +497,35 @@ console.log(searchByTitle("Rings"))
     this object should contain an array called match, made by all the movies from the provided movies array which contain the given string in the title,
     and another array unmatch with all the remaining ones.
 */
-// console.log("\nEx. 19\n")
+console.log("\nEx. 19\n")
 
-// const searchAndDivide = (x) => {
-//   let object = {
-//     match: []
-//   }
-//   return object//object
-// }
+const searchAndDivide = x => {
+  const result = {}
+  const match = searchByTitle(x)
+  result.match = match
+  const unmatch = []
+  for(let i = 0; i < movies.length; i++){
+    let title = movies[i].Title
+    if (!title.includes(x)) unmatch.push(title) //not ! reverse method
+  }
+  const answer = [match, unmatch]
+  return answer
+}
 
-// console.log(searchAndDivide("Rings"))
+console.log(searchAndDivide("Rings"))
 
 
 /* EXERCISE 20
    Write a function called "removeIndex" which receives a number as a parameter and returns the provided movies array without the element in the given position.
 */
+console.log("\nEx. 20\n")
+
+const removeIndex = x => {
+    movies.splice(x, 1)
+    return movies
+}
+
+console.log(removeIndex(4))
 
 // [EXTRAS] JS Advanced
 
@@ -525,6 +537,25 @@ console.log(searchByTitle("Rings"))
   **
   ***
 */
+console.log("\nEx. 21\n")
+
+// const halfTree = x => {
+
+// }
+const halfTree = x => {
+  if (x <= 0){
+    return
+  } else {
+    let result = "*"
+    for (let i = 0; i < x - 1; i++) {
+      console.log(result)
+      result += "*"
+    }
+    return result
+  }
+}
+
+console.log(halfTree(5))
 
 /* EXERCISE 22 
   Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
@@ -534,10 +565,61 @@ console.log(searchByTitle("Rings"))
    *** 
   *****
 */
+console.log("\nEx. 22\n")
+
+// const tree = x => {
+//   if (x <= 0){
+//     return
+//   } else {
+//     let result = ""
+//     for (let i = 0; i < x - 1; i++) {
+//       console.log(result)
+//       result += "*"
+//       console.log(result)
+//       newLine = " " + result + "**"
+//       console.log(newLine)
+//     }
+//     console.log(result)
+//   }
+// }
+
+//(tree(5))
+
+const tree = levels => { //tried to do this without the repeat method. gave up after about 5 hours of loop hell.
+  for (let i = 0; i < levels; i++){
+    let spaces = " ".repeat(levels - 1 - i)
+    let stars = "*".repeat(1 + 2 * i)
+    console.log(spaces + stars)
+  }
+}
+tree(22)
 
 /* EXERCISE 23
   Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
 */
+console.log("\nEx. 23\n")
+
+const isItPrime = x => {
+  let result
+  if (x === 2) {
+    result = `${x} is a prime number!\n`
+    return result
+  }
+  else {
+      for (let i = x - 1; i > 1; i--) {
+          if (x % i === 0) {result = `${x} is not a prime number.\n`}
+          else {result = `${x} is a prime number!\n`}
+  } return result
+}}
+
+console.log(isItPrime(2))
+console.log(isItPrime(4))
+console.log(isItPrime(5))
+console.log(isItPrime(6))
+console.log(isItPrime(7))
+console.log(isItPrime(9))
+console.log(isItPrime(11))
+
 
 /* WHEN YOU ARE FINISHED
  Commit and push the code to your personal GitHub repository; then post the link of your commit on the Homework section of today's Eduflow.
